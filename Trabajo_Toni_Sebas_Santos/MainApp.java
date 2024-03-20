@@ -6,13 +6,22 @@ public class MainApp {
 
     public static void main(String[] args) {
         // Crear algunos productos
-        Producto producto1 = new Producto("Camiseta", 20.0, 50, 21);
-        Producto producto2 = new Producto("Pantalón", 30.0, 30, 21);
+        Producto producto1 = new Producto("Huevos", 4.50, 50, 4);
+        Producto producto2 = new Producto("Sal", 2.0, 15, 4);
+        Producto producto3 = new Producto("Arroz", 2.50, 30, 4);
+        Producto producto4= new Producto("Atún", 6.0, 18, 4);
+        Producto producto5 = new Producto("Fuet", 2.35, 14, 4);
+        Producto producto6 = new Producto("Pan", 0.50, 10, 4);
+        Producto producto7 = new Producto("Tomates", 4.50, 45, 4);
+        Producto producto8 = new Producto("Pimientos", 4.95, 23, 4);
+        Producto producto9 = new Producto("Ceboas", 4.80, 15, 4);
+        Producto producto10 = new Producto("Ajos", 3.20, 35, 4);
 
+        
         while (true) {
             String opcion = JOptionPane.showInputDialog(null,
-                    "---- Menú Principal ----\n" + "1. Ver lista de productos\n" + "2. Comprar producto\n"
-                            + "3. Realizar venta\n" + "4. Modo Administrador\n" + "5. Salir\n"
+                    "---- SuperMercado ----\n" + "1. Catalogo \n" + "2. Comprar producto\n"
+                             + "3. Modo Admin\n" + "4. Salir\n"
                             + "Seleccione una opción:");
 
             if (opcion == null) {
@@ -21,22 +30,15 @@ public class MainApp {
 
             switch (opcion) {
                 case "1":
-                  
-                    mostrarProductos(producto1, producto2);
+                    mostrarProductos(producto1, producto2,producto3,producto4,producto5,producto6,producto7,producto8,producto9,producto10);
                     break;
                 case "2":
-                    System.out.println("Comprar producto");
-                    // Aquí puedes implementar la lógica para comprar un producto
+                    JOptionPane.showMessageDialog(null, "Funcionalidad de compra aún no implementada.");
                     break;
                 case "3":
-                    System.out.println("Realizar venta");
-                    // Aquí puedes implementar la lógica para realizar una venta
+                    JOptionPane.showMessageDialog(null, "Funcionalidad de modo admin aún no implementada.");
                     break;
                 case "4":
-                    System.out.println("Modo Administrador");
-                    // Aquí puedes implementar la lógica para el modo administrador
-                    break;
-                case "5":
                     JOptionPane.showMessageDialog(null, "¡Hasta luego!");
                     return;
                 default:
@@ -46,10 +48,16 @@ public class MainApp {
     }
 
     private static void mostrarProductos(Producto... productos) {
+        StringBuilder productosInfo = new StringBuilder();
+        productosInfo.append("Lista de productos:\n");
+        productosInfo.append("Nombre\t\tPrecio\tCantidad Disponible\tIVA aplicado\n");
+        productosInfo.append("-----------------------------------\n");
         for (Producto producto : productos) {
-            System.out.println(producto.getNombre() + "\t\t$" + producto.getPrecio() + "\t\t" +
-                    producto.getCantidadDisponible() + "\t\t" + producto.getIva());
+            productosInfo.append(producto.getNombre()).append("\t\t€").append(producto.getPrecio()).append("\t\t")
+                    .append(producto.getCantidadDisponible()).append("\t\t\t").append(producto.getIva()).append("\n");
         }
+        JOptionPane.showMessageDialog(null, productosInfo.toString());
     }
 }
+
 
