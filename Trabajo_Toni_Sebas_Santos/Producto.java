@@ -31,4 +31,12 @@ public class Producto {
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
+
+	@Override
+	public String toString() {
+		return "Producto [nombre=" + nombre + ", precio=" + precio + ", cantidadDisponible=" + cantidadDisponible
+				+ ", iva=" + iva + "]";
+	}
+
+    
 }
